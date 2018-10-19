@@ -1,10 +1,11 @@
-class AdminController < ApplicationController
+class AdminBooksController < ApplicationControllerrou
 before_action :authenticate_user!
   def index
+    @books = Book.all
   end
 
-  def display_authors
-    @authors = Author.all
+  def show
+    @books =
   end
 
   def display_books

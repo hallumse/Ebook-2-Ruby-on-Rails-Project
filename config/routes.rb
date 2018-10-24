@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "books#index"
 
-  resources :books
-
-  resources :sales
+  resources :books do
+    resources :sales, except: :index
+  end
+resources :sales, only: :index
 end

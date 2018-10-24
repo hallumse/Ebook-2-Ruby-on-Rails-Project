@@ -1,6 +1,5 @@
 class SalesController < ApplicationController
-  # before_action :authenticate_user!
-  require "stripe"
+  before_action :authenticate_user!
 
   def index
     @sales = current_user.sales
@@ -12,11 +11,11 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
+    @book = Book.find params[:book_id]
   end
 
   def create
-    Stripe.api_key = Etoria_Ebooks_2::Application.credentials.stripe[:secret_key]
-
+   @book = Book.find params[:book_id]
     amount = (@book.price * 100).to_i
 
     stripe_charge = Stripe::Charge.create(

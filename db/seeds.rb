@@ -25,6 +25,15 @@ ron_rash = User.create!(name: "Ron Rash", email: "ron@ron_rash.dev", password: "
   book.save!
 end
 
+# 200.times do
+#   User.create({
+#     email: "#{SecureRandom.hex(3)}_#{Faker::Internet.email}",
+#     name: Faker::Name.name,
+#     password: SecureRandom.hex(10)
+#   })
+#   puts user.email
+# end
+
 # books.each do |book|
 #   Book.create!(title: book[:title], price: book[:price])
 # end

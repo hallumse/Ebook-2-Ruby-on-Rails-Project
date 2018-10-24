@@ -1,6 +1,6 @@
 class Sale < ApplicationRecord
-  belongs to :user
-  belongs to :book
+  belongs_to :user
+  belongs_to :book
 
   attr_reader  :stripe_token
 end

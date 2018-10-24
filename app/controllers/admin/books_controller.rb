@@ -8,15 +8,23 @@ class Admin::BooksController < ApplicationController
   end
 
   def update
-    # Book.create(title: params[:book][:title])
-    # redirect_to books_index_path
+   @book = Book.find(params[:id])
+   @book.title = params[:book][:title]
+   @book.save
+   redirect_to book_path(@book)
   end
 
   def create
     Book.create(title: params[:book][:title])
-    redirect_to books_index_path
+    redirect_to books_path
+  end
+
+  def edit
+    @book = Book.find(params[:id])
   end
 
   def destroy
+   Book.find(params[:id]).destroy
+   redirect_to books_path
   end
 end

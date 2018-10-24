@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # has_one_attached :avatar
+  has_many :sales
+  has_many :books, through: :sales
 
-  has_many :books, foreign_key: :author_id
+  has_many :books_authored, class_name: "Book", foreign_key: :author_id
 end

@@ -8,11 +8,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <script src="https://js.stripe.com/v3/"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# javascript_pack_tag 'application' %>
+    <%# stylesheet_pack_tag 'application' %>
   </head>
 
   <body>
+  <div class="home-page-img">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%# react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
     <%= yield %>
+
+  </div>
   </body>
 </html>
